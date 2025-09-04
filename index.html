@@ -3,236 +3,157 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dra. Maria Silva - Odontologia</title>
+  <title>Dra. Nome Sobrenome - Dentista</title>
   <style>
-    /* Reset */
-    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif;}
-
+    /* ====== RESET ====== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      background: #faf7f2;
-      color: #4a3b2d;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f6f2e9; /* Bege claro */
+      color: #3e2c1c; /* Marrom terroso */
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* Header */
+    /* ====== HEADER ====== */
     header {
       position: relative;
       text-align: center;
-      color: #fff;
-      background: linear-gradient(135deg, #c8a97e, #9b7e5b);
-      padding: 80px 20px;
+      padding: 4rem 1rem 2rem;
       overflow: hidden;
     }
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      animation: fadeDown 1s ease forwards;
-    }
-    header p {
-      font-size: 1.2rem;
-      animation: fadeUp 1.5s ease forwards;
-    }
 
-    /* Shapes decorativas */
-    header::before, header::after {
-      content: "";
+    header::before {
+      content: '';
       position: absolute;
+      top: -150px;
+      left: -50px;
       width: 200%;
-      height: 200px;
-      left: -50%;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.2);
-      animation: wave 6s infinite ease-in-out;
-    }
-    header::before { bottom: -100px; }
-    header::after {
-      bottom: -120px;
-      background: rgba(255,255,255,0.15);
-      animation-delay: -3s;
+      height: 300px;
+      background: #d9b88c; /* Bege médio */
+      border-radius: 50% 50% 0 0;
+      transform: rotate(-5deg);
+      z-index: -1;
+      animation: wave 6s ease-in-out infinite alternate;
     }
 
-    /* Sessões */
-    section {
-      padding: 70px 20px;
-      max-width: 1100px;
+    @keyframes wave {
+      from { transform: rotate(-5deg) translateY(0); }
+      to { transform: rotate(-5deg) translateY(20px); }
+    }
+
+    .profile-pic {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #f6f2e9;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      animation: float 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-10px); }
+    }
+
+    h1 {
+      margin-top: 1rem;
+      font-size: 1.8rem;
+      color: #3e2c1c;
+    }
+
+    p.subtitle {
+      color: #665544;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ====== ABOUT ====== */
+    section.about {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      max-width: 700px;
       margin: auto;
     }
-    h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 40px;
-      color: #6e4f34;
+    section.about p {
+      font-size: 1.05rem;
     }
 
-    /* Sobre */
-    .sobre {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 30px;
-      animation: fadeIn 1.2s ease;
-    }
-    .sobre img {
-      width: 280px;
-      border-radius: 50%;
-      border: 6px solid #e8dcc9;
-      object-fit: cover;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-    .sobre div {flex: 1;}
-
-    /* Serviços */
-    .servicos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      animation: fadeInUp 1.2s ease;
-    }
-    .card {
-      background: #fff;
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: transform .3s, box-shadow .3s;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-    }
-    .card h3 {margin-bottom: 10px; color: #7a5c3d;}
-
-    /* Portfólio */
-    .portfolio {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      animation: fadeInUp 1.2s ease;
-    }
-    .portfolio img {
-      width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-      transition: transform .3s;
-    }
-    .portfolio img:hover {transform: scale(1.05);}
-
-    /* Contato */
-    form {
+    /* ====== LINKS ====== */
+    section.links {
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      max-width: 500px;
-      margin: auto;
-      animation: fadeIn 1.2s ease;
+      align-items: center;
+      padding: 2rem 1.5rem;
+      gap: 1rem;
     }
-    input, textarea {
-      padding: 12px;
-      border: 1px solid #d1c7b7;
-      border-radius: 10px;
-      background: #fff;
-    }
-    button {
-      background: #9b7e5b;
-      color: white;
-      padding: 14px;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background .3s;
-    }
-    button:hover {background: #7a5c3d;}
 
-    /* Footer */
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 1.4rem;
+      background: #8a5a44; /* tom terroso escuro */
+      color: #fff;
+      border-radius: 40px;
+      font-weight: bold;
+      text-decoration: none;
+      width: 80%;
+      max-width: 320px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #a6735c;
+      transform: translateY(-3px);
+    }
+
+    /* ====== FOOTER ====== */
     footer {
       text-align: center;
-      padding: 25px;
-      background: #e8dcc9;
-      color: #4a3b2d;
-      margin-top: 40px;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+      color: #777;
     }
 
-    /* Animações */
-    @keyframes fadeIn {from {opacity: 0;} to {opacity: 1;}}
-    @keyframes fadeInUp {from {opacity: 0; transform: translateY(40px);} to {opacity: 1; transform: translateY(0);}}
-    @keyframes fadeDown {from {opacity: 0; transform: translateY(-40px);} to {opacity: 1; transform: translateY(0);}}
-    @keyframes fadeUp {from {opacity: 0; transform: translateY(40px);} to {opacity: 1; transform: translateY(0);}}
-    @keyframes wave {
-      0%, 100% {transform: translateX(0);}
-      50% {transform: translateX(30px);}
-    }
-
-    /* Responsivo */
-    @media(max-width: 768px) {
-      .sobre {flex-direction: column; text-align: center;}
+    /* ====== RESPONSIVO ====== */
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5rem; }
+      .btn { font-size: 0.95rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
-    <h1>Dra. Maria Silva</h1>
-    <p>Cirurgiã-Dentista | Ortodontia & Estética</p>
+    <img src="https://via.placeholder.com/160" alt="Foto da dentista" class="profile-pic">
+    <h1>Dra. Nome Sobrenome</h1>
+    <p class="subtitle">Cirurgiã-Dentista | Estética & Saúde</p>
   </header>
 
-  <section class="sobre">
-    <img src="https://via.placeholder.com/280" alt="Foto da dentista">
-    <div>
-      <h2>Sobre Mim</h2>
-      <p>Sou a Dra. Maria Silva, especialista em ortodontia e estética. Minha missão é transformar sorrisos e devolver autoestima aos meus pacientes, com atendimento humanizado, tecnologia moderna e muito cuidado.</p>
-    </div>
+  <!-- SOBRE -->
+  <section class="about">
+    <p>Atendimento humanizado, com foco em devolver a confiança e o bem-estar através do sorriso. Especialista em odontologia estética e reabilitação oral.</p>
   </section>
 
-  <section>
-    <h2>Serviços</h2>
-    <div class="servicos">
-      <div class="card">
-        <h3>Ortodontia</h3>
-        <p>Aparelhos modernos e alinhadores invisíveis para correção eficaz.</p>
-      </div>
-      <div class="card">
-        <h3>Clareamento</h3>
-        <p>Clareamento dental seguro para um sorriso mais branco e saudável.</p>
-      </div>
-      <div class="card">
-        <h3>Implantes</h3>
-        <p>Reabilitação oral com implantes de qualidade e resultados naturais.</p>
-      </div>
-    </div>
+  <!-- LINKS -->
+  <section class="links">
+    <a href="https://wa.me/5511999999999" target="_blank" class="btn">Agende sua consulta</a>
+    <a href="https://www.instagram.com/seuinsta" target="_blank" class="btn">Instagram</a>
+    <a href="https://maps.google.com" target="_blank" class="btn">Localização</a>
+    <a href="#" target="_blank" class="btn">Portfólio de Sorrisos</a>
   </section>
 
-  <section>
-    <h2>Portfólio</h2>
-    <div class="portfolio">
-      <img src="https://via.placeholder.com/400x250" alt="Antes e Depois 1">
-      <img src="https://via.placeholder.com/400x250" alt="Antes e Depois 2">
-      <img src="https://via.placeholder.com/400x250" alt="Antes e Depois 3">
-    </div>
-  </section>
-
-  <section>
-    <h2>Contato</h2>
-    <form id="form-contato">
-      <input type="text" placeholder="Seu nome" required>
-      <input type="email" placeholder="Seu e-mail" required>
-      <textarea placeholder="Mensagem" rows="5" required></textarea>
-      <button type="submit">Enviar Mensagem</button>
-    </form>
-  </section>
-
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Dra. Maria Silva - Todos os direitos reservados</p>
+    <p>&copy; 2025 Dra. Nome Sobrenome. Todos os direitos reservados.</p>
   </footer>
-
-  <script>
-    document.getElementById("form-contato").addEventListener("submit", function(e){
-      e.preventDefault();
-      alert("Mensagem enviada com sucesso!");
-      this.reset();
-    });
-  </script>
 
 </body>
 </html>
