@@ -1,4 +1,4 @@
-<script>
+
         const modal = document.getElementById("modalTratamentos");
         const btnTratamentos = document.querySelector(".links a.btn"); // primeiro botão
         const spanClose = document.querySelector(".close");
@@ -17,4 +17,4 @@
             modal.style.display = "none";
             }
         });
-    </script>
+
